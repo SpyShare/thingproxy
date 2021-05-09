@@ -40,7 +40,7 @@ function addCORSHeaders(req, res) {
 
 function writeResponse(res, httpCode, body) {
     res.statusCode = httpCode;
-    res.end(body);
+    res.end(body);f
 }
 
 function sendInvalidURLResponse(res) {
@@ -70,7 +70,7 @@ function processRequest(req, res) {
         var remoteURL;
 
         try {
-            remoteURL = url.parse(decodeURIComponent(result[1]));
+            remoteURL = url.parse(  encodeURIComponent(result[1]) );
         }
         catch (e) {
             return sendInvalidURLResponse(res);
